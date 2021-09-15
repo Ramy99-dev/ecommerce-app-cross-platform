@@ -1,0 +1,61 @@
+
+<div *ngIf="products.length>0 ; else noProduct" class="container">
+    <div class="categorie">
+        <div class="categories">
+            <h4>Categorie</h4>
+            <hr>
+            <ul>
+                <li (click)="getAllProduct()">Tous les produits</li>
+                <li (click)="getProductByCategory(categ._id)" *ngFor="let categ of catgories">{{categ.name}}</li>
+                
+            </ul>
+        </div>
+        <div *ngIf="products.length>1" class="price">
+            <h4>Prix</h4>
+            <hr>
+            <div (mouseup)="changePrice()" class="custom-slider">
+                <ngx-slider   [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                <span >Entre : {{minValue}} et {{maxValue}} DT</span>
+            </div>
+        </div>
+    </div>
+    <div  class="products">
+        <div class="options">
+            <span>Trier par : </span>
+            <select (change)="sortBy($event)" name="" id="">
+                <option  value="Nom">Nom</option>
+                <option selected="selected" value="Prix">Prix</option>
+            </select>
+        </div>
+        <div class="product-list">
+            <div class="prod">
+                <div [routerLink]="['/produit', prod._id]" *ngFor="let prod of products"  class="product">
+                    <div  class="product-img">
+                        <img style="width:100%" src="../../assets/uploads/{{prod.product_img}}" alt="" srcset="">
+                    </div>
+                    <div class="product-desc">
+                        <h3>{{prod.name}}</h3>
+                        <h3>{{prod.price}} DT</h3>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="numberPage>1 && search==false" class="pagination">
+                <div (click)="changePage(i)" *ngFor="let nb of [].constructor(numberPage);let i=index">
+                    {{i+1}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<ng-template #noProduct>
+    <div class="container-alert">
+        <div class="alert">
+            <p>Désole pas de produit :(</p>
+        </div>
+        <img src="https://pic.onlinewebfonts.com/svg/img_90947.png" alt="">
+
+    </div>
+    
+</ng-template>

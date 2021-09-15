@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="form"  >
+        <form [formGroup]="editForm" (ngSubmit)='edit()'>
+        <div class="input">
+            <label for="">Nom</label><br>
+            <input [(ngModel)]="user.firstName" type="text" name="" id="" formControlName="firstName">
+        </div>
+        <div class="input">
+            <label for="">Prénom :</label><br>
+            <input [(ngModel)]="user.lastName" type="text" name="" id="" formControlName="lastName">
+        </div>
+       
+        <div class="input">
+            <label for="">Email : </label><br>
+            <input [(ngModel)]="user.email" type="text" name="" id="" formControlName="email">
+        </div>
+        <div class="input">
+            <label for="">Place : </label><br>
+            <input [(ngModel)]="user.place" type="text" name="" id="" formControlName="place">
+        </div>
+
+        <div class="input">
+            <label for="">Sexe : </label><br>
+            <select [(ngModel)]="user.gender" formControlName="gender" name="" id="">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <div class="input">
+            <label for="">Date : </label><br>
+            <input [ngModel]="user.birthday | date:'yyyy-MM-dd'" formControlName="birthday"  type="date" name="" id="">
+        </div>
+        <div class="btn-container">
+            <input [disabled]="editForm.invalid" class="btn" type="submit" value="Changer">
+        </div>
+      
+    </form>
+    </div>
+    </div>

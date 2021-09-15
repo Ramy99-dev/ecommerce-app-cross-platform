@@ -1,0 +1,39 @@
+
+<div class="container">
+    <div class="product">
+    <div class="product-img">
+        <img src="../../assets/uploads/{{product.product_img}}" alt="" srcset="">
+    </div>
+    <div class="product-details">
+        <div class="product-title">
+            <h1>{{product.name}}</h1>
+          </div>
+        <div class="product-description">
+            {{product.description}}
+        </div>
+        <div class="product-quantity">
+            <div class="custom-slider">
+                <ngx-slider [(value)]="minValue"  [options]="options"></ngx-slider>
+                <span>Quantité : {{minValue}}</span>
+            </div>
+        </div>
+        <div class="product-price">
+                <h3>{{product.price * minValue}} DT</h3>
+        </div>
+        <div class="product-buy">
+            <button (click)="addCart()" class="btn-buy"> <fa-icon style="margin-right: 3px;" [icon]="faShoppingCart"></fa-icon>Acheter</button>
+        </div>
+    </div>
+   </div>
+
+   <div class="other-product">
+    <hr>
+       <h4>Produit similiare</h4>
+       <carousel  [height]='370' [cellWidth]='300' [cellsToShow]="2">
+        <div style="cursor:pointer;" (click)="changeProd(prod._id)" *ngFor="let prod of otherProduct" class="carousel-cell">
+            <img  src="../../assets/uploads/{{prod.product_img}}">
+        </div>
+
+    </carousel>
+   </div>
+</div>

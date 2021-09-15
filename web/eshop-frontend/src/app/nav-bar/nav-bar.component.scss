@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-basis: 10vh;
+    margin-bottom: 8px;
+    .brand {
+        flex-basis: 10%;
+        font-family: "Poppins";
+    }
+    fa-icon {
+        cursor: pointer;
+    }
+    .items {
+        flex-basis: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .search {
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        font-family: "Poppins";
+        select,
+        option,
+        input {
+            font-family: "Poppins";
+            border: none;
+        }
+
+        select {
+            border-right: 1px solid rgba(0, 0, 0, 0.3);
+        }
+    }
+    .search-btn {
+        background: #333333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 50px;
+        color: white;
+        * {
+            padding: 10px 10px;
+        }
+    }
+}
+.login {
+    .login-items {
+        display: flex;
+        gap: 20px;
+    }
+    span {
+        color: red;
+        font-family: "Poppins";
+    }
+    .cart-shop {
+        display: flex;
+        gap: 5px;
+        div {
+            background: red;
+            width: 20px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+                color: white;
+                font-family: "Poppins";
+                font-weight: bold;
+            }
+        }
+    }
+}
+nav {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 40px;
+    .nav-items {
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+
+        margin: 0px;
+        padding: 0px;
+        li {
+            cursor: pointer;
+            font-family: "Poppins";
+            padding: 20px 20px;
+            color: white;
+            &:hover {
+                background: orange;
+            }
+        }
+    }
+}
+
+.profile,.collapse{
+    display: none;
+}
+
+
+@media only screen and (max-width: 800px) {
+    ul {
+        width: 100%;
+    }
+    li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0px !important;
+    }
+    header {
+        flex-direction: column;
+        gap: 0px;
+    }
+    nav>.nav-items{
+        display: none;
+    }
+    .collapse{
+        display: block;
+    }
+    .items {
+        gap: 40px;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .items{
+        gap:20px;
+    }
+    .nav-items {
+        flex-direction: column;
+        gap: 0px;
+    }
+    .profile-icon{
+        display: none;
+    }
+    .profile{
+        display: flex;
+    }
+   
+
+    .search > select {
+        display: none;
+    }
+}

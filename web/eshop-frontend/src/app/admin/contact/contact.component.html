@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="contact-table">
+        <table>
+            <thead>
+                <th>#</th>
+                <th>Email</th>
+                <th>Sujet</th>
+                <th>Consulter</th>
+                <th>Supprimer</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contact of contacts; let i = index">
+                    <td>{{contact._id}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.subject}}</td>
+                    <td><button [routerLink]="['/single-contact-management', contact._id]"><fa-icon [icon]="faGlasses"></fa-icon></button></td>
+                    <td><button (click)="delete(contact._id, i )"><fa-icon [icon]="faTrashAlt"></fa-icon></button></td>
+                   
+              </tr>
+             
+            </tbody>
+        </table>
+    </div>
+</div>

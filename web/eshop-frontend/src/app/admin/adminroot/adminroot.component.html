@@ -1,0 +1,15 @@
+<div class="container">
+    <div #sidebar class="sidebar">
+        <ul>
+            <li routerLink="/">Acceuil</li>
+            <li routerLink="/users-management">Clients</li>
+            <li routerLink="/products-management">Produits</li>
+            <li routerLink="/categories-management">Categorie</li>
+            <li routerLink="/contact-management">Boite de reception</li>
+        </ul>
+    </div>
+    <div #content class="content">
+        <fa-icon (click)="collapse()" [icon]="faBars"></fa-icon>
+        <router-outlet></router-outlet>
+    </div>
+</div>

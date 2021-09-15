@@ -1,0 +1,39 @@
+
+<div class="container">
+    <section>
+        <div class="banner">
+            <h1>EShop</h1>
+            <img class="banner-img" src="../../assets/img/banner-img.png" alt="" srcset="">
+        </div>
+        <div  class="random-products">
+            <div *ngFor="let prod of randomProd" class="product">
+                <div class="product-text">
+                    <h4 class="category text">{{prod.category[0].name}}</h4>
+                    <h2 class="product text">{{prod.name}}</h2>
+                    <button [routerLink]="['/produit',prod._id]">Detaille</button>
+                </div>
+                <img  src="../../assets/uploads/{{prod.product_img}}" alt="">
+            </div>
+            
+            
+        </div>
+        <div class="banner">
+            <img class="banner-img" width="500px;" src="../../assets/img/banner-img1.png" alt="">
+        </div>
+        <div  class="trend-products">
+            <h1>Article tendance</h1>
+            <carousel [height]='370' [cellWidth]='300' [cellsToShow]="1">
+                <div style="cursor:pointer;" (click)="goToProd(prod._id)" *ngFor="let prod of bestProd" class="carousel-cell">
+                    <img  src="../../assets/uploads/{{prod.product_img}}">
+                </div>
+               
+            </carousel>
+        </div>
+       
+    </section>
+    
+
+    <footer>
+
+    </footer>
+</div>

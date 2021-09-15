@@ -1,0 +1,53 @@
+<header>
+    <div class="brand">
+        <h1>EShop</h1>
+    </div>
+    <div class="items">
+       
+        <div class="collapse">
+            <fa-icon (click)="collapse()" [icon]="faBars"></fa-icon>
+        </div>
+        <form [formGroup]="searchForm" (submit)="search()">
+            <div class="search">
+                <select name="categroy" id="category" formControlName="category">
+                    <option value="" selected>Tous les category</option>
+                    <option *ngFor="let categ of categories" value="{{categ._id}}">{{categ.name}}</option>
+
+                </select>
+                <input formControlName="word" type="text" name="" id="">
+                <div (click)="search()" class="search-btn">
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                </div>
+            </div>
+        </form>
+
+        <div class="login">
+            <div class="login-items" *ngIf="connected == true  ; else connect">
+                <fa-icon class="profile-icon" routerLink="/profile" [icon]="faUser"></fa-icon>
+                <fa-icon (click)="logout()" [icon]="faSignOutAlt"></fa-icon>
+                <div class="cart-shop">
+                    <fa-icon routerLink="/panier" [icon]="faShoppingBasket"></fa-icon><sub><div><span>{{cartLength}}</span></div></sub>
+                 </div>
+            </div>
+            <div>
+                <ng-template #connect>
+                    <div class="login-items">
+                        <fa-icon routerLink="/connecter" [icon]="faSignInAlt"></fa-icon>
+                       
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<nav>
+    <ul #navItems class="nav-items">
+        <li routerLink="/acceuil">Acceuil</li>
+        <li *ngIf="connected == true" class="profile" routerLink="/profile">Profile</li>
+        <li routerLink="/produits">Produits</li>
+        <li>Service</li>
+        <li routerLink="/contact">Nous contacter</li>
+    </ul>
+</nav>

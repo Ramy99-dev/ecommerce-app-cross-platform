@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="form"  >
+        <form [formGroup]="editForm" (ngSubmit)="edit()">
+        <div class="input">
+            <label for="">Nom</label><br>
+            <input [ngModel]="product?.name" type="text" name="" id="" formControlName="name">
+        </div>
+        <div class="input">
+            <label for="">Prénom :</label><br>
+            <select [ngModel]="product?.category" formControlName="category" id="">
+                <option *ngFor="let categ of categories " value="{{categ._id}}">{{categ.name}}</option>
+            </select>
+        </div>
+       
+        <div class="input">
+            <label for="">Description : </label><br>
+             <textarea  [ngModel]="product?.description" formControlName="description" name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="input">
+            <label for="">Quantité : </label><br>
+            <input [ngModel]="product?.qte" type="text" name="" id="" formControlName="qte">
+        </div>
+        <div class="input">
+            <label for="">Prix : </label><br>
+            <input [ngModel]="product?.price" type="text" name="" id="" formControlName="price">
+        </div>
+
+        
+        <div class="btn-container">
+            <input class="btn" type="submit" value="Changer">
+        </div>
+      
+    </form>
+    </div>
+    </div>

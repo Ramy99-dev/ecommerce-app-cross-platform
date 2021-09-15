@@ -1,0 +1,48 @@
+<div *ngIf="cart.products?.length>0  && cart.products != null; else noCart" class="container">
+
+    <div class="prod">
+        <div *ngFor="let prod of cart.products ; let i = index" class="product">
+            <div class="img">
+                <img src="../../assets/uploads/{{prod.img}}" alt="">
+            </div>
+
+
+            <div class="info">
+                <div class="title">
+                    <h3>{{prod.product}}</h3>
+                </div>
+                <div class="quantity">
+                    Quantité : {{prod.qte}}
+                </div>
+                <div class="price">
+                    <h3>{{prod.price}}</h3>
+                </div>
+            </div>
+
+
+            <div (click)="delete(prod.id,i)" class="button">
+                <button>
+                    <fa-icon [icon]="faTrashAlt"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="total">
+        <div class="price">
+            <h3>{{total}} DT</h3>
+        </div>
+        <div class="button">
+            <button (click)="buy()">Acheter</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #noCart>
+    <div class="container-alert">
+        <div class="alert">
+            <p>Le panier est vide </p>
+        </div>
+        <img src="https://visualpharm.com/assets/960/Clear%20Shopping%20Cart-595b40b85ba036ed117dbfd9.svg" alt="">
+
+    </div>
+</ng-template>

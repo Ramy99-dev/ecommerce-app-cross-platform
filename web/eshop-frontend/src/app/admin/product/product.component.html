@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="products">
+        <table>
+            <thead>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Categorie</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Vente</th>
+                <th>Quantité</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prod of products; let i = index">
+                    <td>{{prod._id}}</td>
+                    <td>{{prod.name}}</td>
+                    <td>{{prod.category[0].name}}</td>
+                    <td>{{prod.description}}</td>
+                    <td>{{prod.price}}</td>
+                    <td>{{prod.sales}}</td>
+                    <td>{{prod.qte}}</td>
+                    <td><button (click)="openEdit(prod._id)"><fa-icon [icon]="faEdit"></fa-icon></button></td>
+                    <td><button (click)="delete(prod._id, i )"><fa-icon [icon]="faTrashAlt"></fa-icon></button></td>
+                </tr>
+               
+            </tbody>
+        </table>
+    </div>
+    <div class="options">
+        <div class="add-product">
+            <form [formGroup]="addForm" (submit)="add()">
+                <div class="form-control">
+                    <label for="">Nom</label>
+                    <input type="text" class="form-input" formControlName="name">
+                </div>
+                <div class="form-control">
+                    <label for="">Categorie</label>
+                    <select name="" id="" class="form-input" formControlName="category">
+                        <option value="{{categ._id}}" *ngFor="let categ of categories">{{categ.name}}</option>
+                        
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="">Prix</label>
+                    <input type="number" name="" id="" class="form-input" formControlName="price">
+                </div>
+                <div class="form-control">
+                    <label for="">Description</label>
+                    <textarea name="" id="" cols="40" rows="3" formControlName="description"></textarea>
+                </div>
+                <div class="form-control">
+                    <label for="">Quantite</label>
+                    <input type="number" name="" id="" class="form-input" formControlName="qte">
+                </div>
+                <div class="form-control">
+                    <label for="">Image</label>
+                    <input type="File" (input)='fileChoosen($event)' class="form-input" formControlName="product_img">
+                </div>
+                <div class="form-control">
+                    <button [disabled]="addForm.invalid" type="submit">Ajouter</button>
+                </div>
+                
+            </form>
+        </div>
+    
+    </div>
+</div>

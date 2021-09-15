@@ -1,0 +1,31 @@
+
+<div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="add()">
+        <div class="form-input">
+         <div class="form-control">
+            <div class="champ">
+               <label for="">Sujet : </label>
+            </div>
+            <div class="input-field">
+               <input class="input" type="text" name="" id=""  formControlName="subject">
+            </div>
+        </div>
+        <div class="form-control">
+            <div class="champ">
+               <label for="">Email : </label>
+            </div>
+            <div class="input-field">
+               <input class="input" type="email" name="" id=""  formControlName="email">
+            </div>
+        </div>
+        
+        <div class="form-control textarea">
+           <textarea #content (keyup)="incrWords()" maxlength="755" formControlName="msg" class="content"   name="" id="" cols="100" rows="10"></textarea>
+           <small>{{words+"/"+755}}</small>
+        </div>
+        <div class="form-control">
+           <button [disabled]="contactForm.invalid" type="submit">Envoyer</button>
+        </div>
+    </div>
+    </form>
+</div>

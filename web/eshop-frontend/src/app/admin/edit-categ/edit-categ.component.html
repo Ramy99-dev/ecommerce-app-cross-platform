@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="form"  >
+        <form [formGroup]="editForm"  (ngSubmit)="edit()">
+        <div class="input">
+            <label for="">Nom</label><br>
+            <input [ngModel]="category?.name" type="text" name="" id="" formControlName="name">
+        </div>
+        
+        <div class="btn-container">
+            <input class="btn" type="submit" value="Changer">
+        </div>
+      
+    </form>
+    </div>
+    </div>

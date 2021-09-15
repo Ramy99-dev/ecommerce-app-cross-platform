@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f6f7fb;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-family: "Poppins";
+    padding: 10px 0px;
+    background: white;
+    img {
+        width: 800px;
+    }
+}
+
+.register {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    small{
+        color:red;
+    }
+}
+
+.form-input {
+    height: 29px;
+    width: 300px;
+    font-family: "Poppins";
+    padding-left: 10px;
+}
+
+.form-control-radio{
+    display: flex;
+    width:40%;
+}
+
+@media only screen and (max-width: 800px) {
+    .box-image > img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+//Form Verification
+.ng-touched.ng-invalid {
+    border-color:red;
+    border-width: 2px;
+}

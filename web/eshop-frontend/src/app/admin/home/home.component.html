@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="general">
+        <div *ngIf="hour<19; else night" class="welcome morning">
+          <h1>Bonjour Admin</h1>
+          <p>Cette page a pour but de vous donner une idée generale sur le site</p>
+        </div>
+        <ng-template #night>
+            <div class="welcome night">
+                <h1>Bonsoir Admin</h1>
+                <p>Cette page a pour but de vous donner une idée generale sur le site</p>
+              </div>
+        </ng-template>
+        <div class="info">
+            <div class="info1">
+                <div class="users">
+                    <span class="number">{{number.users}}</span>
+                    <span class="title">Comptes</span>
+                </div>
+                <div class="product">
+                    <span class="number">{{number.prods}}</span>
+                    <span class="title">Produits</span>
+                </div>
+            </div>
+            <div class="info1">
+                 <div class="categ">
+                     <span class="number">{{number.categs}}</span>
+                     <span class="title">Categories</span>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="graphs">
+        
+        <div class="table">
+            <table>
+          
+                <th *ngFor="let title of  generalInfoTiltes ">{{title}}</th>
+                <tbody  *ngIf="generalInfoVal =='products'">
+                <tr *ngFor="let product of generalInfo">
+                    <td>{{product.name}}</td>
+                    <td>{{product.category[0].name}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                </tr>
+                </tbody>
+                <tbody  *ngIf="generalInfoVal =='categories'">
+                    <tr *ngFor="let categ of generalInfo">
+                        <td>{{categ.name}}</td>
+                        
+                    </tr>
+                </tbody>
+                <tbody  *ngIf="generalInfoVal =='clients'">
+                    <tr *ngFor="let client of generalInfo">
+                        <td>{{client.firstName}}</td>
+                        <td>{{client.lastName}}</td>
+                        <td>{{client.gender}}</td>
+                        <td>{{client.credit}}</td>
+                    </tr>
+                </tbody>
+               
+                
+        </table>
+        </div>
+    </div>
+</div>

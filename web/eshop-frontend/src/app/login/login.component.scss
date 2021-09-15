@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.container{
+    height:100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F6F7FB;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    font-family: 'Poppins';
+    padding:10px 0px;
+    background: white;
+    img{
+        width:800px;
+    }
+}
+
+.login{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    .form-input{
+        height:29px;
+        width:300px;
+        font-family: 'Poppins';
+        padding-left:10px;
+    }
+    button{
+        font-family: 'Poppins';
+    }
+    a{
+        text-decoration: none;
+        color:darkslateblue;
+    }
+
+}
+//Media Queries
+@media only screen and (max-width: 800px) {
+    
+    .box-image >img{
+        width: 100%;
+        height: auto;
+    }
+    
+}
+
+//Form Verification
+.ng-touched.ng-invalid {
+    border-color:red;
+    border-width: 2px;
+}
+small{
+    color:red;
+}

@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="box">
+        <div class="box-image">
+            <img src="../../assets/img/6EB9CE72-823D-47DD-B2ED2B0E268E7A42.jpg" alt="">
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="login">
+                
+            <div class="form-control">
+                <small>{{errMsg}}</small>
+            </div>
+                <div class="form-control">
+                    <label for="">Email</label><br>
+                    <input type="email" name="" id="" class="form-input" formControlName="email">
+                </div>
+                <div class="form-control">
+                    <label for="">Mot de passe</label><br>
+                    <input type="password" name="" id="" class="form-input" formControlName="password">
+                </div>
+                <div class="form-control">
+                    <button [disabled]="loginForm.invalid" type="submit">Connecter</button><br>
+                   
+                </div>
+                <a routerLink="/inscription">Pas de compte ? Créez-en un</a> 
+           
+        </div>
+    </form>
+    </div>
+</div>

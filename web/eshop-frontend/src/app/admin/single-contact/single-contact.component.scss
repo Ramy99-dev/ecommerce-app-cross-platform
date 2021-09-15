@@ -1,0 +1,26 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.msg{
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    flex-basis:50%;
+    color:white;
+    font-family: 'Poppins';
+    border:2px solid white;
+    padding:10px;
+    inline-size: 150px;
+    overflow-wrap: break-word;
+   
+}
+.header{
+    gap:5px;
+    flex-basis:20%;
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    flex-basis: 80%;
+}

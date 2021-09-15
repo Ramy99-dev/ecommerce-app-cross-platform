@@ -1,0 +1,37 @@
+<div class="container">
+    <section class="section1">
+        <div class="add-categ">
+            <form [formGroup]="addForm" (submit)="add()">
+                <div class="form-control">
+                    <label for="">Nom</label>
+                    <input type="text" class="form-input" formControlName="name">
+                </div>
+                <div class="form-control">
+                    <button type="submit" [disabled]="addForm.invalid">Ajouter</button>
+                </div>
+            </form>
+        </div>
+        <div class="categ-table">
+            <table>
+                <thead>
+                    <th>#</th>
+                    <th>Categorie</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor ="let categ of categories; let i = index">
+                        <td>{{categ._id}}</td>
+                        <td>{{categ.name}}</td>
+                        <td><button (click)="openEdit(categ._id)"><fa-icon [icon]="faEdit"></fa-icon></button></td>
+                    <td><button (click)="delete(categ._id, i )"><fa-icon [icon]="faTrashAlt"></fa-icon></button></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section class="section2">
+        <div class="graph"></div>
+    </section>
+</div>

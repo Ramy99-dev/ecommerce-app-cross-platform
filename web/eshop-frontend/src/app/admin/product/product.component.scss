@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    flex-direction: column;
+   
+    gap:20px;
+}
+.products{
+    font-family: "Poppins";
+    width:100%;
+    color: white;
+    height: 40vh;
+    overflow-y:auto;
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even){background-color:#13131e;}
+}
+.options{
+    display: flex;
+}
+.add-product{
+    color:white;
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    font-family: "Poppins";
+    
+    .form-control{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+    }
+    .form-input{
+        height:29px;
+        width:300px;
+        font-family: 'Poppins';
+        padding-left:10px;
+    }
+    button{
+        font-family: 'Poppins';
+    }
+}

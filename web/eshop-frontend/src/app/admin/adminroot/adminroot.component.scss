@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.container{
+    display: flex;
+    gap:10px;
+    background: #101010;
+    height: 100vh;
+}
+.sidebar{
+    flex-basis:20%;
+    
+    background: #13131e;
+    font-family:'Poppins';
+    color:white;
+    ul{
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding:0px;
+      li{
+        padding:20px 20px;
+        cursor: pointer;
+        &:hover{
+          background: black;
+        }
+      }
+    }
+}
+.content{
+    flex-basis:80%;
+     
+}
+fa-icon{
+  color:white;
+  font-size: 30px;
+  cursor: pointer;
+}

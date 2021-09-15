@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="profile">
+        <button (click)="openEdit()"  class="edit">Modifer</button>
+        <div class="general-info">
+            <div class="profile-img">
+                 <div *ngIf="user?.gender=='M'">
+                    <img src="https://www.pngkey.com/png/detail/115-1150065_black-avatar-png-graphic-transparent-library-male-symbol.png" alt="">
+                 </div>
+                 <div *ngIf="user?.gender=='F'">
+                    <img src="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_960_720.png" alt="">
+                 </div>
+              
+            </div>
+            <div class="info">
+                <div class="username">
+                   <h1>{{user?.firstName}} {{user?.lastName}}</h1>
+                </div>
+                <div class="credit">
+                  <h4>Credit : {{user?.credit}} DT</h4>
+                  <input #amount *ngIf="add" type="number" name="" id="">
+                  <button  (click)="func()">Ajouter</button>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="content">
+            <div class="field">
+                <div class="champ">
+                    <label for="">Email : </label>
+                </div>
+                <div class="info">
+                    <span>{{user?.email}}</span>
+                </div>
+            </div>
+            <div class="field">
+                <div class="champ">
+                    <label for="">Sexe : </label>
+                </div>
+                <div  class="info">
+                    <span *ngIf="user?.gender=='M' ; else female">Male</span>
+                    <ng-template #female>Female</ng-template>
+                </div>
+            </div>
+            <div class="field">
+                <div class="champ">
+                    <label for="">Lieu : </label>
+                </div>
+                <div class="info">
+                    <span>{{user?.place}}</span>
+                </div>
+            </div>
+            <div class="field">
+                <div class="champ">
+                    <label for="">Date de naissance: </label>
+                </div>
+                <div class="info">
+                    <span>{{user?.birthday | date:'yyyy-MM-dd'}}</span>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+    </div>
+</div>
