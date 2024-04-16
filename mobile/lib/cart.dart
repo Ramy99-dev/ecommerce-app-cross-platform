@@ -47,7 +47,7 @@ class _CartState extends State<Cart> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                           Image.asset(
-                              "stage/eshop-frontend/src/assets/uploads/${i['img']}",
+                              "../web/eshop-frontend/src/assets/uploads/${i['img']}",
                               width: 80),
                           Container(child: Text("${i['product']}"), width: 120),
                           Text('Quantite : ${i['qte']}'),
@@ -87,36 +87,44 @@ class _CartState extends State<Cart> {
                             Text('$total DT',
                                 style: TextStyle(fontWeight: FontWeight.bold)),
                             ElevatedButton.icon(
-                                onPressed: ()async {
-                                 var buyResult = await buy(total);
-                                 if(buyResult['buy'] == "OK")
-                                   {
-                                     Toast.show("Produit acheter", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-                                     var prods = await getCart();
-                                     for (var prod in prods['products'] )
-                                       {
-                                         updateProdSales(prod['id'], prod['qte']);
-                                       }
-                                     setState(() {
-                                       deleteCart();
-                                     });
-                                   }
-                                 else{
-                                   Toast.show("Solde insuffisant", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-                                 }
+                                onPressed: () async {
+                                  var buyResult = await buy(total);
+                                  if (buyResult['buy'] == "OK") {
+                                    Toast.show("Produit acheter", context,
+                                        duration: Toast.LENGTH_SHORT,
+                                        gravity: Toast.BOTTOM);
+                                    var prods = await getCart();
+                                    for (var prod in prods['products']) {
+                                      updateProdSales(prod['id'], prod['qte']);
+                                    }
+                                    setState(() {
+                                      deleteCart();
+                                    });
+                                  } else {
+                                    Toast.show("Solde insuffisant", context,
+                                        duration: Toast.LENGTH_SHORT,
+                                        gravity: Toast.BOTTOM);
+                                  }
                                 },
                                 label: Text('Acheter'),
                                 icon: Icon(Icons.add_shopping_cart_outlined),
-                            style:ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Colors.green),
-                                foregroundColor: MaterialStateProperty.all(Colors.black)
-                            ))
+                                style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all(Colors.green),
+                                    foregroundColor: MaterialStateProperty.all(
+                                        Colors.black)))
                           ]),
                     );
                   }
                   return Container();
                 } else {
-                  return Container(height:(MediaQuery.of(context).size.height)/2,child: Center(child:Opacity(opacity: 0.1,child: SvgPicture.asset('assets/empty.svg',width:200))));
+                  return Container(
+                      height: (MediaQuery.of(context).size.height) / 2,
+                      child: Center(
+                          child: Opacity(
+                              opacity: 0.1,
+                              child: SvgPicture.asset('assets/empty.svg',
+                                  width: 200))));
                 }
               }),
         ])));

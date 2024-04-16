@@ -12,8 +12,16 @@ var storage = multer.diskStorage({
         cb(null, file.originalname)
     }
 })
+const storage2 = multer.diskStorage({
+    destination: 'public',
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
 
 var upload = multer({ storage: storage })
+const upload2 = multer({ storage: storage2 });
 
 const addProd = (req, res) => {
 
@@ -25,7 +33,8 @@ const addProd = (req, res) => {
                 let extension = path.extname(filename);
                 let file = path.basename(filename, extension) + extension;
                 let product = req.body;
-                product.product_img = file;
+                var fileName = file.replace(/^.*[\\\/]/, '');
+                product.product_img = fileName;
                 product.sales = 0;
                 let prod = new Product(product)
                 prod.save().then((result) => {
@@ -285,6 +294,7 @@ module.exports = {
     getBestProd,
     deleteProd,
     upload,
+    upload2,
     getProductByCategoryId,
     getProdByCategId,
     getMinMaxPrice,

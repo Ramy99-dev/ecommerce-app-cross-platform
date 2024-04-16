@@ -19,19 +19,16 @@ class _HomeState extends State<Home> {
   void initState() {
     getRandomProducts();
     EasyLoading.addStatusCallback((status) {
-      
       if (status == EasyLoadingStatus.dismiss) {
         _timer?.cancel();
       }
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      //resizeToAvoidBottomInset: true,
+        //resizeToAvoidBottomInset: true,
         appBar: Nav(),
         drawer: SideBar(),
         body: SafeArea(
@@ -43,12 +40,13 @@ class _HomeState extends State<Home> {
                 height: 200,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [Text("EShop", style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25
-                      )
-                  )), Image.asset('assets/cover1.png')],
+                  children: [
+                    Text("EShop",
+                        style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 25))),
+                    Image.asset('assets/cover1.png')
+                  ],
                 ),
               ),
               SizedBox(
@@ -57,29 +55,26 @@ class _HomeState extends State<Home> {
               FutureBuilder<List>(
                   future: getRandomProducts(),
                   builder: (context, AsyncSnapshot snapshot) {
-
-
                     if (snapshot.hasData) {
                       return CarouselSlider(
                         options: CarouselOptions(
-                          height: 400.0, enableInfiniteScroll: false,),
+                          height: 400.0,
+                          enableInfiniteScroll: false,
+                        ),
                         items: snapshot.data.map<Widget>((i) {
                           return Builder(
                             builder: (BuildContext context) {
                               return Container(
-                                  width: MediaQuery
-                                      .of(context)
-                                      .size
-                                      .width,
+                                  width: MediaQuery.of(context).size.width,
                                   margin: EdgeInsets.symmetric(horizontal: 5.0),
                                   child: InkWell(
-                                    onTap:(){
+                                    onTap: () {
                                       Navigator.pushNamed(
                                           context, '/single-product',
                                           arguments: i['_id']);
                                     },
-                                    child: Image.asset(
-                                        'stage/eshop-frontend/src/assets/uploads/${i['product_img']}'),
+                                    child: Image.network(
+                                        'http://localhost:4080/${i['product_img']}'),
                                   ));
                             },
                           );
@@ -93,7 +88,6 @@ class _HomeState extends State<Home> {
                 height: 10,
               ),
               Container(
-
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [Image.asset("assets/banner-img1.png")],
@@ -109,38 +103,32 @@ class _HomeState extends State<Home> {
                   builder: (context, AsyncSnapshot snapshot) {
                     if (snapshot.hasData) {
                       return CarouselSlider(
-
                         options: CarouselOptions(
                             height: 400.0, enableInfiniteScroll: false),
                         items: snapshot.data.map<Widget>((i) {
+                          print(i['product_img']);
                           return Builder(
                             builder: (BuildContext context) {
                               return Container(
-                                  width: MediaQuery
-                                      .of(context)
-                                      .size
-                                      .width,
+                                  width: MediaQuery.of(context).size.width,
                                   margin: EdgeInsets.symmetric(horizontal: 5.0),
                                   child: InkWell(
-                                    onTap:(){
+                                    onTap: () {
                                       Navigator.pushNamed(
                                           context, '/single-product',
                                           arguments: i['_id']);
                                     },
-                                    child: Image.asset(
-                                        'stage/eshop-frontend/src/assets/uploads/${i['product_img']}'),
+                                    child: Image.network(
+                                        'http://localhost:4080/${i['product_img']}'),
                                   ));
                             },
                           );
                         }).toList(),
                       );
-                    }
-                    else {
+                    } else {
                       return Center(child: CircularProgressIndicator());
                     }
-                  }
-
-              ),
+                  }),
             ],
           ),
         ));

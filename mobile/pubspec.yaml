@@ -31,11 +31,12 @@ dependencies:
   carousel_slider: ^4.0.0
   http: ^0.13.3
   google_fonts: ^2.1.0
-  flutter_secure_storage: ^4.2.1
+  flutter_secure_storage:
   toast: ^0.1.5
   flutter_svg: ^0.22.0
   flutter_easyloading: ^3.0.3
   intl: ^0.17.0
+  platform: ^3.1.0
 
 
 
@@ -57,7 +58,7 @@ flutter:
 
   assets:
     - assets/
-    - stage/eshop-frontend/src/assets/uploads/
+   
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

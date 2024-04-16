@@ -3,14 +3,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
 
-
+let app = express();
+app.use(express.static('public'));
 
 let userRouter = require('./route/userRoute')
 let categRouter = require('./route/categoryRoute')
 let prodRouter = require('./route/productRoute')
 let cartRouter = require('./route/cartRoute')
 let contactRouter = require('./route/contactRoute')
-let app = express();
+
 
 
 

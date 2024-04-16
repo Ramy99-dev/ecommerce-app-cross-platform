@@ -6,17 +6,15 @@ import 'sideBar.dart';
 import './services/products.dart';
 import './services/category.dart';
 
-
 class Product extends StatefulWidget {
   @override
   _ProductState createState() => _ProductState();
 }
 
 class _ProductState extends State<Product> {
-
   Future<List> product;
 
- /*void getToken()async{
+  /*void getToken()async{
     var token = await EshopApp.storage.read(key:'jwt');
 
     print(token);
@@ -106,10 +104,9 @@ class _ProductState extends State<Product> {
                                       arguments: snapshot.data[index]['_id']);
                                 },
                                 child: Image.asset(
-                                    "stage/eshop-frontend/src/assets/uploads/${snapshot.data[index]['product_img']}"));
+                                    "http://localhost:4080/${snapshot.data[index]['product_img']}"));
                           });
                     } else {
-
                       return Center(child: CircularProgressIndicator());
                     }
                   })),
